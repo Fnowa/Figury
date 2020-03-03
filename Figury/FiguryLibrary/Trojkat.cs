@@ -71,7 +71,7 @@ namespace FiguryLibrary
             if (a <= 0 || b <= 0 || c <= 0 )
                 throw new ArgumentOutOfRangeException("boki dodatnie");
             if (!isSpelnionyWarunekTrojkata(a,b,c))
-                throw new ArgumentOutOfRangeException("nie spełniono trójkąta");
+                throw new ArgumentException("nie spełniono trójkąta");
             this.a = a;
             this.b = b;
             this.c = c;
