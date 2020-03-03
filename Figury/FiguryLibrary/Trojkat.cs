@@ -13,9 +13,11 @@ namespace FiguryLibrary
             {
                 if (value <= 0)
                     throw new ArgumentOutOfRangeException("wartość musi być dodatnia");
-                else
+                else if(isSpelnionyWarunekTrojkata(value, b, c))
                     a = value;
-                }
+                else 
+                    throw new ArgumentException("Nie zbydyjesz z tego trójkąta przy prubie zmiany A!");
+            }
         }
         private double b;
         public double B
@@ -25,8 +27,10 @@ namespace FiguryLibrary
             {
                 if (value <= 0)
                     throw new ArgumentOutOfRangeException("wartość musi być dodatnia");
-                else
+                else if (isSpelnionyWarunekTrojkata(a, value, c))
                     b = value;
+                else
+                    throw new ArgumentException("Nie zbydyjesz z tego trójkąta przy prubie zmiany B!");
             }
         }
         private double c;
@@ -37,10 +41,25 @@ namespace FiguryLibrary
             {
                 if (value <= 0)
                     throw new ArgumentOutOfRangeException("wartość musi być dodatnia");
-                else
+                else if (isSpelnionyWarunekTrojkata(a, b, value))
                     c = value;
+                else
+                    throw new ArgumentException("Nie zbydyjesz z tego trójkąta przy prubie zmiany C!");
             }
         }
+
+        private bool isSpelnionyWarunekTrojkata(double a, double b, double c)
+        {
+            if (a + b <= c || b + c <= a || c + a <= b)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
         // budow obiektu - konstruktor
         public Trojkat() // Trojkat() - konstruktor domyślny
         {
@@ -48,13 +67,17 @@ namespace FiguryLibrary
         }
         public Trojkat(double a, double b, double c)
         {
+            //jeśli wprowadzamy niedodatnią wartoś zgłaszamy wyjątek
+            if (a <= 0 || b <= 0 || c <= 0 )
+                throw new ArgumentOutOfRangeException("boki dodatnie");
+            if (!isSpelnionyWarunekTrojkata(a,b,c))
+                throw new ArgumentOutOfRangeException("nie spełniono trójkąta");
             this.a = a;
             this.b = b;
             this.c = c;
-            
         }
 
-        //tekstowe reprezentacja obiektu
+        //tekstowe reprezentacja obiektu - drukowanie
         public override string ToString()
         {
             return $"trójkąt(a: {a}, b: {b}, c: {c})";                      
