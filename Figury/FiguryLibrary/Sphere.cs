@@ -20,6 +20,12 @@ namespace FiguryLibrary
 
         public new double Perimeter => throw new NotSupportedException("sfera nie ma obwodu");
 
+        public new Sphere Scale(double factor)
+        {
+            if (factor < 0)
+                throw new ArgumentOutOfRangeException("Współczynnik musi być dodatni");
 
+            return new Sphere(R * factor);
+        }
     }
 }
