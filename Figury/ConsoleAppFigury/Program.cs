@@ -9,7 +9,53 @@ namespace ConsoleAppFigury
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
+        {
+            var t = new Triangle();
+            Console.WriteLine(t);
+            Console.WriteLine(t.Color);
+            t.Print();
+
+            var s = new Sphere(10);
+            Console.WriteLine(s);
+            Console.WriteLine(s.Surfice);
+            Console.WriteLine(s.Perimeter);
+        }
+
+        static void Main3()
+        {
+            Circle c = new Circle();
+            Console.WriteLine(c);
+
+            var c1 = new Circle(1.5);
+            Console.WriteLine(c1);
+
+            Console.WriteLine(c.Perimeter);
+            Console.WriteLine(c1.Perimeter);
+            Console.WriteLine(c.Surfice);
+            Console.WriteLine(c1.Surfice);
+
+            var t3 = c1.Scale(2);
+            Console.WriteLine(t3);
+        }
+
+
+        static void Main2()
+        {
+            Triangle t = new Triangle();
+            Console.WriteLine(t);
+
+            var t1 = new Triangle(1.5, 1, 1);
+            Console.WriteLine(t1);
+
+            //var t2 = new Triangle(3);//reszta 1
+            //Console.WriteLine(t2);
+
+            var t3 = t1.Scale(2);
+            Console.WriteLine(t3);
+        }
+
+        static void Main1(string[] args)
         {
             Trojkat t1; //deklaracja zmiennej typu Trojkat
             t1 = new Trojkat();
@@ -37,5 +83,7 @@ namespace ConsoleAppFigury
            
 
         }
+
+
     }
 }
