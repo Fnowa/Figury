@@ -19,7 +19,37 @@ namespace ConsoleAppFigury
             var s = new Sphere(10);
             Console.WriteLine(s);
             Console.WriteLine(s.Surfice);
-            Console.WriteLine(s.Perimeter);
+            //Console.WriteLine(s.Perimeter);
+
+            var c = new Circle(1);
+            var t1 = new Triangle(3, 4, 5);
+            var s1 = new Sphere(2);
+
+            List<Figure> lista;
+            lista = new List<Figure>();
+            lista.Add(t);
+            lista.Add(s);
+            lista.Add(c);
+            lista.Add(t1);
+            lista.Add(s1);
+            lista.Add(new Circle(4));
+
+            foreach( var f in lista)
+            {
+                Console.WriteLine(f);
+            }
+            
+            var total = 0.0;
+            foreach (var f in lista)
+            {
+                if(f is IMeasurable2D)
+                {
+                    total += ((IMeasurable2D)f).Surfice;
+                    Console.WriteLine(f);
+                }
+                    
+            }
+            Console.WriteLine($"sumaryczne pole = {total}");
         }
 
         static void Main3()

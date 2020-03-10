@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FiguryLibrary
 {
-    public class Circle : Figure
+    public class Circle : Figure, IMeasurable2D, IMeasurable1D 
     {
         public double R { get; private set; }
 
@@ -35,5 +35,7 @@ namespace FiguryLibrary
         }
 
         public virtual double Surfice => R * R * Math.PI;
+
+        public double Lenght => Perimeter;
     }
 }
